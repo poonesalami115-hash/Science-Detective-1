@@ -1,1 +1,234 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+  <title>کارآگاه علوم | Science Detective</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- لوگوی ثابت بازی -->
+  <img
+    src="science-logo.png"
+    alt="لوگوی بازی"
+    class="game-logo"
+  >
+
+  <!-- =========================
+       صفحه شروع
+  ========================== -->
+  <main id="startScreen" class="screen active">
+
+    <section class="intro-card">
+
+      <img
+        src="science-boy.png"
+        alt="کارآگاه علوم"
+        class="detective-main"
+      >
+
+      <h1>کارآگاه علوم</h1>
+
+      <h2>Science Detective</h2>
+
+      <p class="intro-text">
+        آماده‌ای رازهای علوم ششم را کشف کنی؟
+      </p>
+
+      <button
+        id="startMissionBtn"
+        class="main-button"
+        type="button"
+      >
+        شروع مأموریت 🔎
+      </button>
+
+      <p class="grade-text">
+        علوم ششم
+      </p>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       صفحه ورود دانش‌آموز
+  ========================== -->
+  <main id="loginScreen" class="screen">
+
+    <section class="login-card">
+
+      <img
+        src="science-boy-happy.png"
+        alt="کارآگاه"
+        class="login-character"
+      >
+
+      <h2>ورود به مأموریت</h2>
+
+      <p>
+        مشخصاتت را وارد کن تا پرونده برایت ثبت شود.
+      </p>
+
+      <form id="studentForm">
+
+        <label for="studentName">
+          نام و نام خانوادگی
+        </label>
+
+        <input
+          id="studentName"
+          name="studentName"
+          type="text"
+          autocomplete="name"
+          placeholder="نام و نام خانوادگی"
+          required
+        >
+
+        <label for="nationalCode">
+          کد ملی
+        </label>
+
+        <input
+          id="nationalCode"
+          name="nationalCode"
+          type="text"
+          inputmode="numeric"
+          autocomplete="off"
+          maxlength="10"
+          minlength="10"
+          pattern="[0-9]{10}"
+          placeholder="کد ملی ۱۰ رقمی"
+          required
+        >
+
+        <p
+          id="loginError"
+          class="error-message"
+          aria-live="polite"
+        ></p>
+
+        <button
+          id="enterGameBtn"
+          class="main-button"
+          type="submit"
+        >
+          ورود به بازی 🔬
+        </button>
+
+      </form>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       صفحه اصلی بازی
+  ========================== -->
+  <main id="gameScreen" class="screen">
+
+    <header class="game-header">
+
+      <div class="student-info">
+        <span id="studentDisplayName"></span>
+      </div>
+
+      <div class="timer-box">
+        زمان:
+        <span id="gameTimer">00:00</span>
+      </div>
+
+    </header>
+
+
+    <section id="gameWorld" class="game-world">
+
+      <!-- محیط بازی در مرحله CSS و JS ساخته می‌شود -->
+
+      <img
+        id="detectiveCharacter"
+        src="science-boy.png"
+        alt="کارآگاه علوم"
+        class="detective-character"
+      >
+
+    </section>
+
+
+    <!-- پنجره سؤال -->
+    <section
+      id="questionPanel"
+      class="question-panel"
+      hidden
+    >
+
+      <div class="question-card">
+
+        <!-- شماره سؤال داخل خود سؤال قرار می‌گیرد -->
+        <div
+          id="questionText"
+          class="question-text"
+        ></div>
+
+        <div
+          id="answersContainer"
+          class="answers-container"
+        ></div>
+
+        <p
+          id="questionMessage"
+          class="question-message"
+          aria-live="polite"
+        ></p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       صفحه پایان
+  ========================== -->
+  <main id="finishScreen" class="screen">
+
+    <section class="finish-card">
+
+      <img
+        src="science-boy-celebrating.png"
+        alt="کارآگاه موفق"
+        class="finish-character"
+      >
+
+      <h1>پرونده با موفقیت حل شد! 🎉</h1>
+
+      <p id="finishMessage"></p>
+
+      <button
+        id="finishButton"
+        class="main-button"
+        type="button"
+      >
+        پایان
+      </button>
+
+    </section>
+
+  </main>
+
+
+  <!-- فایل سؤال‌ها -->
+  <script src="questions.js"></script>
+
+  <!-- منطق اصلی بازی -->
+  <script src="game.js"></script>
+
+</body>
+</html>
