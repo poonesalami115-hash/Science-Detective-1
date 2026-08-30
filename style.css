@@ -63,7 +63,7 @@ body {
       rgba(15, 22, 30, 0.38),
       rgba(15, 22, 30, 0.72)
     ),
-    url("science-window.png") center / cover no-repeat;
+  url("science-window.png") center / cover no-repeat;
 }
 
 .intro-card {
