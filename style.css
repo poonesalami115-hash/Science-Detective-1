@@ -283,7 +283,7 @@ body {
       rgba(45, 31, 24, 0.28),
       rgba(25, 18, 15, 0.38)
     ),
-    url("science-map.png") center / cover no-repeat;
+    url("science-window.png") center / cover no-repeat;
 }
 
 .detective-character {
