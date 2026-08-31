@@ -266,7 +266,7 @@ body {
 }
 
 /* =========================
-   دنیای بازی
+   دنیای بازی علوم
 ========================= */
 
 .game-world {
@@ -274,26 +274,156 @@ body {
   width: 100%;
   height: min(70vh, 620px);
   min-height: 420px;
+
   overflow: hidden;
+
   border-radius: 24px;
   border: 3px solid #6d4c41;
 
   background:
     linear-gradient(
-      rgba(45, 31, 24, 0.28),
-      rgba(25, 18, 15, 0.38)
+      rgba(45, 31, 24, 0.25),
+      rgba(25, 18, 15, 0.42)
     ),
     url("science-window.png") center / cover no-repeat;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
 }
+
+
+/* =========================
+   اشیای محیط
+========================= */
+
+.world-object {
+  position: absolute;
+
+  object-fit: contain;
+
+  user-select: none;
+  -webkit-user-select: none;
+
+  pointer-events: none;
+}
+
+
+/* میز آزمایش */
+
+.lab-table {
+  width: 240px;
+  left: 7%;
+  bottom: 8%;
+  z-index: 8;
+}
+
+
+/* چراغ */
+
+.old-lamp {
+  width: 95px;
+  right: 7%;
+  top: 8%;
+  z-index: 7;
+}
+
+
+/* کتاب */
+
+.science-book {
+  width: 100px;
+  left: 43%;
+  bottom: 17%;
+  z-index: 9;
+}
+
+
+/* ذره‌بین */
+
+.magnifying-glass {
+  width: 75px;
+  left: 27%;
+  bottom: 16%;
+  z-index: 10;
+}
+
+
+/* تلسکوپ */
+
+.telescope {
+  width: 150px;
+  right: 8%;
+  bottom: 12%;
+  z-index: 9;
+}
+
+
+/* سنگ */
+
+.science-rock {
+  width: 90px;
+  right: 34%;
+  bottom: 8%;
+  z-index: 8;
+}
+
+
+/* صندوق */
+
+.science-chest {
+  width: 130px;
+  right: 5%;
+  bottom: 7%;
+  z-index: 10;
+}
+
+
+/* کلید */
+
+.science-key {
+  width: 55px;
+  right: 22%;
+  bottom: 27%;
+  z-index: 12;
+}
+
+
+/* دروازه */
+
+.science-gate {
+  width: 150px;
+  left: 5%;
+  top: 8%;
+  z-index: 6;
+}
+
+
+/* =========================
+   کارآگاه
+========================= */
 
 .detective-character {
   position: absolute;
+
   width: 90px;
   height: 120px;
+
   object-fit: contain;
+
   left: 35px;
   bottom: 25px;
-  z-index: 20;
+
+  z-index: 30;
+
+  user-select: none;
+  -webkit-user-select: none;
+
+  pointer-events: none;
+
+  transition:
+    left 0.12s linear,
+    bottom 0.12s linear;
 }
 
 /* =========================
