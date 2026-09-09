@@ -290,12 +290,10 @@ studentForm.addEventListener(
 
     currentStudentCode = code;
 
-    studentDisplayName.textContent =
-      name;
+studentDisplayName.textContent =
+  name;
 
-    markPlayedToday(code);
-
-    startGame();
+startGame();
 
   }
 );
@@ -319,9 +317,11 @@ function startGame() {
 
   questionMessage.textContent = "";
 
-  showScreen(gameScreen);
+ showScreen(gameScreen);
 
-  startTimer();
+markPlayedToday(currentStudentCode);
+
+startTimer();
 
 }
 
