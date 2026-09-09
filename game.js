@@ -317,12 +317,11 @@ function startGame() {
 
   questionMessage.textContent = "";
 
- showScreen(gameScreen);
+showScreen(gameScreen);
 
 markPlayedToday(currentStudentCode);
 
 startTimer();
-
 }
 
 /* ===========================
