@@ -313,9 +313,11 @@ function startGame() {
   detectiveCharacter.src =
     "science-boy.png";
 
-  questionPanel.hidden = true;
+ questionPanel.hidden = true;
 
-  questionMessage.textContent = "";
+showQuestion(0);
+
+questionMessage.textContent = "";
 
 showScreen(gameScreen);
 
@@ -398,3 +400,32 @@ finishButton.addEventListener(
 
   }
 );
+function showQuestion(index) {
+    const q = questions[index];
+
+    questionPanel.hidden = false;
+    questionText.textContent = q.text;
+
+    const answersContainer = document.getElementById("answersContainer");
+    answersContainer.innerHTML = "";
+
+    q.answers.forEach((answer, i) => {
+        const button = document.createElement("button");
+
+        button.textContent = answer;
+        button.className = "answer-btn";
+
+        button.onclick = () => answerQuestion(i, q.correct);
+
+        answersContainer.appendChild(button);
+    });
+}
+function answerQuestion(selectedIndex, correctIndex) {
+    if (selectedIndex === correctIndex) {
+        questionMessage.textContent = "آفرین! پاسخ درست است. 🔎";
+        sounds.correct.play();
+    } else {
+        questionMessage.textContent = "پاسخ درست نبود. دوباره دقت کن.";
+        sounds.wrong.play();
+    }
+}
