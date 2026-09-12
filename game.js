@@ -95,7 +95,7 @@ const scienceFireworks =
    تنظیمات
 =========================== */
 
-const GAME_MINUTES = 20;
+const GAME_MINUTES = 40;
 
 let timer = null;
 
