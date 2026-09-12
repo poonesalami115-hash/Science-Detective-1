@@ -27,13 +27,12 @@ body {
   position: fixed;
   top: 12px;
   left: 12px;
-  width: 72px;
-  height: 72px;
+  width: 105px;
+  height: 105px;
   object-fit: contain;
   z-index: 1000;
   border-radius: 50%;
 }
-
 /* =========================
    صفحات
 ========================= */
