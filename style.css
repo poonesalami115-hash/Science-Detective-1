@@ -243,13 +243,18 @@ body {
   margin-bottom: 10px;
 }
 
-.student-info,
-.timer-box {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 14px;
-  padding: 10px 13px;
-  font-size: 14px;
+.student-info, .timer-box {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius:14px;
+  padding:10px 13px;
+  font-size:14px;
+}
+
+.student-info {
+  transform: translateY(-6px);
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .timer-box {
@@ -429,7 +434,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 90px 16px 20px;
-  background: rgba(5, 10, 16, 0.72);
+ background: rgba(5, 10, 16, 0.35);
 }
 
 .question-panel[hidden] {
