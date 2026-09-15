@@ -413,7 +413,7 @@ function showQuestion(index) {
         const button = document.createElement("button");
 
         button.textContent = answer;
-        button.className = "answer-btn";
+      button.className = "answer-button";
 
         button.onclick = () => answerQuestion(i, q.correct);
 
@@ -423,9 +423,13 @@ function showQuestion(index) {
 function answerQuestion(selectedIndex, correctIndex) {
     if (selectedIndex === correctIndex) {
         questionMessage.textContent = "آفرین! پاسخ درست است. 🔎";
-        sounds.correct.play();
+
+        scienceCorrect.currentTime = 0;
+        scienceCorrect.play().catch(function () {});
     } else {
         questionMessage.textContent = "پاسخ درست نبود. دوباره دقت کن.";
-        sounds.wrong.play();
+
+        scienceWrong.currentTime = 0;
+        scienceWrong.play().catch(function () {});
     }
 }
