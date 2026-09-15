@@ -304,6 +304,7 @@ startGame();
 =========================== */
 
 function startGame() {
+  score = 0; 
 
   remainingSeconds =
     GAME_MINUTES * 60;
@@ -402,10 +403,17 @@ finishButton.addEventListener(
   }
 );
 function showQuestion(index) {
+
+    if (index >= questions.length) {
+        finishGame();
+        return;
+    }
+
     const q = questions[index];
 
     questionPanel.hidden = false;
-    questionText.textContent = q.text;
+   questionText.textContent =
+    q.text.split("\n\n")[0];
 
     const answersContainer = document.getElementById("answersContainer");
     answersContainer.innerHTML = "";
@@ -423,12 +431,19 @@ function showQuestion(index) {
 }
 function answerQuestion(selectedIndex, correctIndex, index) {
     if (selectedIndex === correctIndex) {
-        questionMessage.textContent = "آفرین! پاسخ درست است. 🔎";
+        questionMessage.textContent =
+            "آفرین! پاسخ درست است. 🔎";
+       if (wrongAttempts === 0) {
+    score += 1;
+} else {
+    score += 0.5;
+}
 
         scienceCorrect.currentTime = 0;
         scienceCorrect.play().catch(function () {});
 
-        wrongAttempts = 0;
+       let wrongAttempts = 0;
+let score = 0;
 
         setTimeout(function () {
             showQuestion(index + 1);
@@ -445,11 +460,16 @@ function answerQuestion(selectedIndex, correctIndex, index) {
             scienceWrong.play().catch(function () {});
 
         } else {
+            questionMessage.textContent =
+                "پاسخ صحیح: " +
+                questions[index].answers[correctIndex] +
+                " 🔎";
+
             wrongAttempts = 0;
 
             setTimeout(function () {
                 showQuestion(index + 1);
-            }, 300);
+            }, 1800);
         }
     }
 }
