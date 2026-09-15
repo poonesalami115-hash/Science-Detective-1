@@ -530,12 +530,12 @@ background: rgba(245, 235, 215, 0.25);
 
 @media (max-width: 600px) {
 
-  .game-logo {
-    width: 62px;
-    height: 62px;
-    top: 9px;
-    left: 9px;
-  }
+ .game-logo {
+  width: 105px;
+  height: 105px;
+  top: 9px;
+  left: 9px;
+}
 
   .screen {
     padding-top: 88px;
