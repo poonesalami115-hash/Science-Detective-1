@@ -566,3 +566,26 @@ background: rgba(245, 235, 215, 0.25);
     padding: 8px 10px;
   }
 }
+#finishStudent,
+#finishCode,
+#finishTime,
+#finishScore,
+#finishEncouragement {
+  margin: 10px 0;
+  line-height: 1.8;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+#finishScore {
+  color: #ffd54f;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#finishEncouragement {
+  margin-top: 18px;
+  color: #81d4fa;
+  font-size: 20px;
+  font-weight: bold;
+}
