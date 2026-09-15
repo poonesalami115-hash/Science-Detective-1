@@ -104,6 +104,7 @@ let remainingSeconds =
 
 let currentStudentCode = "";
 
+let wrongAttempts = 0;
 /* ===========================
    ابزار تغییر صفحه
 =========================== */
@@ -415,21 +416,46 @@ function showQuestion(index) {
         button.textContent = answer;
       button.className = "answer-button";
 
-        button.onclick = () => answerQuestion(i, q.correct);
+       button.onclick = () => answerQuestion(i, q.correct, index);
 
         answersContainer.appendChild(button);
     });
 }
-function answerQuestion(selectedIndex, correctIndex) {
+function answerQuestion(selectedIndex, correctIndex, index) {
     if (selectedIndex === correctIndex) {
         questionMessage.textContent = "آفرین! پاسخ درست است. 🔎";
 
         scienceCorrect.currentTime = 0;
         scienceCorrect.play().catch(function () {});
-    } else {
-        questionMessage.textContent = "پاسخ درست نبود. دوباره دقت کن.";
 
-        scienceWrong.currentTime = 0;
-        scienceWrong.play().catch(function () {});
+        wrongAttempts = 0;
+
+        setTimeout(function () {
+            showQuestion(index + 1);
+        }, 1200);
+
+    } else {
+        wrongAttempts++;
+
+        if (wrongAttempts === 1) {
+            questionMessage.textContent =
+                "پاسخ غلط است. یک فرصت دیگر داری! 🔎";
+
+            scienceWrong.currentTime = 0;
+            scienceWrong.play().catch(function () {});
+
+        } else {
+            questionMessage.textContent =
+                "این پاسخ هم درست نبود. می‌رویم سراغ سؤال بعدی.";
+
+            scienceWrong.currentTime = 0;
+            scienceWrong.play().catch(function () {});
+
+            wrongAttempts = 0;
+
+            setTimeout(function () {
+                showQuestion(index + 1);
+            }, 1200);
+        }
     }
 }
