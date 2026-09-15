@@ -57,12 +57,30 @@ const detectiveCharacter =
    پایان
 =========================== */
 
+/* ===========================
+   پایان
+=========================== */
+
 const finishMessage =
   document.getElementById("finishMessage");
 
+const finishScore =
+  document.getElementById("finishScore");
+
+const finishStudent =
+  document.getElementById("finishStudent");
+
+const finishCode =
+  document.getElementById("finishCode");
+
+const finishTime =
+  document.getElementById("finishTime");
+
+const finishEncouragement =
+  document.getElementById("finishEncouragement");
+
 const finishButton =
   document.getElementById("finishButton");
-
 /* ===========================
    صداها
 =========================== */
@@ -385,7 +403,36 @@ function finishGame() {
 
   finishMessage.textContent =
     "مأموریت علمی به پایان رسید!";
+   finishStudent.textContent =
+    "دانش‌آموز: " + studentDisplayName.textContent;
 
+finishCode.textContent =
+    "کد ملی: " + currentStudentCode;
+
+const finishDate = new Date();
+
+finishTime.textContent =
+    "زمان پایان: " +
+    finishDate.toLocaleTimeString("fa-IR", {
+        hour: "2-digit",
+        minute: "2-digit"
+    });
+   
+finishScore.textContent =
+    "امتیاز: " + score + " از ۲۰";
+  if (score > 17) {
+    finishEncouragement.textContent =
+        "🌟 فوق‌العاده بود! تو یک کارآگاه علوم واقعی هستی! 🌟";
+} else if (score >= 14) {
+    finishEncouragement.textContent =
+        "👏 آفرین! عملکرد خیلی خوبی داشتی.";
+} else if (score >= 10) {
+    finishEncouragement.textContent =
+        "👍 خوب بود! با کمی تمرین بیشتر، عالی‌تر می‌شوی.";
+} else {
+    finishEncouragement.textContent =
+        "💪 ناامید نشو! دوباره تمرین کن و قوی‌تر برگرد.";
+} 
   showScreen(finishScreen);
 
 }
