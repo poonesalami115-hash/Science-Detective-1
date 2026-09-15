@@ -445,17 +445,11 @@ function answerQuestion(selectedIndex, correctIndex, index) {
             scienceWrong.play().catch(function () {});
 
         } else {
-            questionMessage.textContent =
-                "این پاسخ هم درست نبود. می‌رویم سراغ سؤال بعدی.";
-
-            scienceWrong.currentTime = 0;
-            scienceWrong.play().catch(function () {});
-
             wrongAttempts = 0;
 
             setTimeout(function () {
                 showQuestion(index + 1);
-            }, 1200);
+            }, 300);
         }
     }
 }
