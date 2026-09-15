@@ -434,7 +434,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 90px 16px 20px;
- background: rgba(5, 10, 16, 0.35);
+background: rgba(245, 235, 215, 0.25);
 }
 
 .question-panel[hidden] {
