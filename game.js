@@ -448,9 +448,7 @@ finishButton.addEventListener(
     location.reload();
 
   }
-);
 function showQuestion(index) {
-
     if (index >= questions.length) {
         finishGame();
         return;
@@ -459,23 +457,30 @@ function showQuestion(index) {
     const q = questions[index];
 
     questionPanel.hidden = false;
-   questionText.textContent =
-    q.text.split("\n\n")[0];
 
-    const answersContainer = document.getElementById("answersContainer");
+    const parts = q.text.split("\n\n");
+
+    questionText.textContent = parts[0];
+
+    const answersContainer =
+        document.getElementById("answersContainer");
+
     answersContainer.innerHTML = "";
 
     q.answers.forEach((answer, i) => {
         const button = document.createElement("button");
 
-        button.textContent = answer;
-      button.className = "answer-button";
+        button.textContent = parts[i + 1];
 
-       button.onclick = () => answerQuestion(i, q.correct, index);
+        button.className = "answer-button";
+
+        button.onclick = () =>
+            answerQuestion(i, q.correct, index);
 
         answersContainer.appendChild(button);
     });
 }
+
 function answerQuestion(selectedIndex, correctIndex, index) {
     if (selectedIndex === correctIndex) {
         questionMessage.textContent =
