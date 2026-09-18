@@ -448,7 +448,9 @@ finishButton.addEventListener(
     location.reload();
 
   }
-function showQuestion(index) {
+  ); 
+function showQuestion(index) );  {
+   
     if (index >= questions.length) {
         finishGame();
         return;
