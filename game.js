@@ -469,18 +469,18 @@ function showQuestion(index) {
 
     answersContainer.innerHTML = "";
 
-    q.answers.forEach((answer, i) => {
-        const button = document.createElement("button");
+   q.answers.forEach((answer, i) => {
+    const button = document.createElement("button");
 
-        button.textContent = parts[i + 1];
+    button.textContent = q.answers[i];
 
-        button.className = "answer-button";
+    button.className = "answer-button";
 
-        button.onclick = () =>
-            answerQuestion(i, q.correct, index);
+    button.onclick = () =>
+        answerQuestion(i, q.correct, index);
 
-        answersContainer.appendChild(button);
-    });
+    answersContainer.appendChild(button);
+});
 }
 
 function answerQuestion(selectedIndex, correctIndex, index) {
