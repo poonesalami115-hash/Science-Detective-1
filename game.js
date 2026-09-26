@@ -460,7 +460,7 @@ function showQuestion(index) {
 
     questionPanel.hidden = false;
 
-    const parts = q.text.split("\n\n");
+    const parts = q.text.split("\n");
 
     questionText.textContent = parts[0];
 
