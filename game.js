@@ -472,7 +472,7 @@ function showQuestion(index) {
    q.answers.forEach((answer, i) => {
     const button = document.createElement("button");
 
-    button.textContent = q.answers[i];
+    button.textContent = parts[i + 1];
 
     button.className = "answer-button";
 
