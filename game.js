@@ -450,7 +450,7 @@ finishButton.addEventListener(
   }
   ); 
 function showQuestion(index) {
-   
+
     if (index >= questions.length) {
         finishGame();
         return;
@@ -460,7 +460,7 @@ function showQuestion(index) {
 
     questionPanel.hidden = false;
 
-    const parts = q.text.split("\n");
+    const parts = q.text.split(/\n\s*\n/);
 
     questionText.textContent = parts[0];
 
@@ -469,18 +469,24 @@ function showQuestion(index) {
 
     answersContainer.innerHTML = "";
 
-   q.answers.forEach((answer, i) => {
-    const button = document.createElement("button");
+    const options = parts[1]
+        .split("\n")
+        .map(text => text.trim())
+        .filter(text => text !== "");
 
-    button.textContent = parts[i + 1];
+    options.forEach((option, i) => {
 
-    button.className = "answer-button";
+        const button = document.createElement("button");
 
-    button.onclick = () =>
-        answerQuestion(i, q.correct, index);
+        button.textContent = option;
 
-    answersContainer.appendChild(button);
-});
+        button.className = "answer-button";
+
+        button.onclick = () =>
+            answerQuestion(i, q.correct, index);
+
+        answersContainer.appendChild(button);
+    });
 }
 
 function answerQuestion(selectedIndex, correctIndex, index) {
