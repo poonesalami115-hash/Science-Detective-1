@@ -123,6 +123,8 @@ let remainingSeconds =
 let currentStudentCode = "";
 
 let wrongAttempts = 0;
+
+let score = 0;
 /* ===========================
    ابزار تغییر صفحه
 =========================== */
@@ -490,24 +492,25 @@ function showQuestion(index) {
 }
 
 function answerQuestion(selectedIndex, correctIndex, index) {
-    if (selectedIndex === correctIndex) {
-        questionMessage.textContent =
-            "آفرین! پاسخ درست است. 🔎";
-       if (wrongAttempts === 0) {
-    score += 1;
-} else {
-    score += 0.5;
-}
+if (selectedIndex === correctIndex) {
+    questionMessage.textContent =
+        "آفرین! پاسخ درست است. 🔎";
 
-        scienceCorrect.currentTime = 0;
-        scienceCorrect.play().catch(function () {});
+    if (wrongAttempts === 0) {
+        score += 1;
+    } else {
+        score += 0.5;
+    }
 
-       let wrongAttempts = 0;
-let score = 0;
+    scienceCorrect.currentTime = 0;
+    scienceCorrect.play().catch(function () {});
 
-        setTimeout(function () {
-            showQuestion(index + 1);
-        }, 1200);
+    wrongAttempts = 0;
+
+    setTimeout(function () {
+        showQuestion(index + 1);
+    }, 1200);
+      
 
     } else {
         wrongAttempts++;
